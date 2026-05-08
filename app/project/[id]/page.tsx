@@ -2,13 +2,19 @@ import { notFound } from "next/navigation";
 import ProjectCard from "@/components/ProjectCard";
 import { getProjectById, getRelatedProjects } from "@/data/index";
 
-export async function generateMetadata({ params }) {
+type ProjectPageParams = {
+  params: {
+    id: string;
+  };
+};
+
+export async function generateMetadata({ params }: ProjectPageParams) {
   const project = getProjectById(params.id);
   if (!project) return { title: "Not Found" };
   return { title: `${project.title} — design.somin` };
 }
 
-export default function DetailPage({ params }) {
+export default function DetailPage({ params }: ProjectPageParams) {
   const project = getProjectById(params.id);
   if (!project) notFound();
 
