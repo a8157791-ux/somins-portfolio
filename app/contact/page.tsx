@@ -1,16 +1,22 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type ChangeEvent, type FormEvent } from "react";
+
+type ContactFormState = {
+  name: string;
+  email: string;
+  message: string;
+};
 
 export default function ContactPage() {
-  const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [form, setForm] = useState<ContactFormState>({ name: "", email: "", message: "" });
   const [sent, setSent] = useState(false);
 
-  const handleChange = (e) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // 실제 전송 기능은 EmailJS 또는 Formspree로 연결 가능
     setSent(true);
