@@ -58,24 +58,17 @@ export default function Header() {
           style={{
             display: "flex",
             alignItems: "center",
-            gap: 12,
             flexShrink: 0,
           }}
         >
-          {/* Logo image — place ui/logo.svg in public/images/ui/ */}
+          {/* logo.png — public/images/ui/logo.png */}
           <Image
-            src="/images/ui/logo.svg"
-            alt="design.somin logo"
-            width={50}
-            height={50}
-            style={{ width: 36, height: 36 }}
-          />
-          <Image
-            src="/images/ui/logo-text.svg"
+            src="/images/ui/logo.png"
             alt="design.somin"
-            width={140}
-            height={21}
-            style={{ height: 16, width: "auto" }}
+            width={100}
+            height={40}
+            style={{ height: "clamp(28px, 3.5vw, 36px)", width: "auto" }}
+            priority
           />
         </Link>
 
