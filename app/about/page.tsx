@@ -22,97 +22,84 @@ export const metadata = {
 
 export default function AboutPage() {
   return (
-    <div className="page-container">
-      <main>
-        {/* ── 인트로 헤딩 ── */}
-        <section className="about-heading">
-          <p className="about-heading__text">
-            A visual designer with 8+ years of experience working across branding, editorial and digital design,{" "}
-            I build clear and consistent visual systems.
+    <main>
+      {/* ── Super Heading ── */}
+      <section className="about-heading">
+        <p className="about-heading__text">
+          {"A visual designer with 8+ years of experience working across branding, editorial and digital design,\nI build clear and consistent visual systems."}
+        </p>
+      </section>
+
+      {/* ── Intro: bio 좌 + photo 우 ── */}
+      <section className="about-intro">
+        {/* 좌: bio + 연락처 */}
+        <div className="about-intro__left">
+          <p className="about-intro__bio">
+            {"With experience at a design agency,\nI have worked across branding and graphic design\nwith a foundation in editorial design.\nI have worked on projects across various fields,\nincluding beauty, fashion, food, and mobile.\n\nWorking across branding, editorial, and digital design,\nI approach each project by considering its context,\nenvironment, and how it communicates.\nI see design not simply as a final outcome,\nbut as a process of connecting ideas and structure\nto shape a cohesive experience.\n\nFrom maintaining and expanding brand identity systems\nto designing magazines, books, educational materials,\nand digital content, I have focused on building consistent\nvisual languages across a wide range of media.\nI am interested in how small elements come together\nto form a cohesive whole, and I value creating clear\nand organized visual structures even within\ncomplex contexts."}
           </p>
-        </section>
-
-        {/* ── 자기소개 + 프로필 이미지 ── */}
-        <section className="about-intro">
-          <div>
-            <p className="about-intro__bio">
-              With experience at a design agency, I have worked across branding and graphic design
-              with a foundation in editorial design. I have worked on projects across various fields,
-              including beauty, fashion, food, and mobile.
-              <br /><br />
-              Working across branding, editorial, and digital design,
-              I approach each project by considering its context,
-              environment, and how it communicates. I see design not simply as a final outcome,
-              but as a process of connecting ideas and structure to shape a cohesive experience.
-              <br /><br />
-              From maintaining and expanding brand identity systems to designing magazines, books,
-              educational materials, and digital content, I have focused on building consistent
-              visual languages across a wide range of media.
-            </p>
-            <div className="about-intro__contacts">
-              <div className="about-intro__contact-item">
-                <span className="about-intro__contact-label">Email</span>
-                <span className="about-intro__contact-value">design.somin@gmail.com</span>
+          <div className="about-intro__contacts">
+            {[
+              { label: "Email", value: "design.somin@gmail.com" },
+              { label: "Phone", value: "(82) 10-5945-7667" },
+              { label: "Location", value: "Los Angeles" },
+            ].map((item) => (
+              <div key={item.label} className="about-intro__contact-item">
+                <span className="about-intro__contact-label">{item.label}</span>
+                <span className="about-intro__contact-value">{item.value}</span>
               </div>
-              <div className="about-intro__contact-item">
-                <span className="about-intro__contact-label">Phone</span>
-                <span className="about-intro__contact-value">(82) 10-5945-7667</span>
-              </div>
-              <div className="about-intro__contact-item">
-                <span className="about-intro__contact-label">Location</span>
-                <span className="about-intro__contact-value">Los Angeles</span>
-              </div>
-            </div>
+            ))}
           </div>
-          <div className="about-intro__image">
-            <Image
-              src="/images/about/about-somin.jpg"
-              alt="Somin Chung"
-              fill
-              sizes="(max-width: 1070px) 100vw, 50vw"
-              style={{ objectFit: "cover", objectPosition: "center top", minHeight: 400 }}
-              priority
-            />
-          </div>
-        </section>
+        </div>
 
-        {/* ── Experience ── */}
-        <section className="about-section">
-          <div className="about-section__inner">
-            <div className="about-section__label">Experience...</div>
-            <div className="about-section__list">
-              {experience.map((item) => (
-                <div key={item.title} className="about-section__item">
-                  <div className="about-section__item-text">
-                    <p className="about-section__item-title">{item.title}</p>
-                  </div>
-                  <p className="about-section__item-year">{item.year}</p>
+        {/* 우: 프로필 이미지 */}
+        <div className="about-intro__image">
+          <Image
+            src="/images/about/about-somin.jpg"
+            alt="Somin Chung"
+            fill
+            sizes="(max-width: 1070px) 100vw, 50vw"
+            style={{ objectFit: "cover", objectPosition: "center top" }}
+            priority
+          />
+        </div>
+      </section>
+
+      {/* ── Experience ── */}
+      <section className="about-section">
+        <div className="about-section__inner">
+          <div className="about-section__label">Experience...</div>
+          <div className="about-section__list">
+            {experience.map((item) => (
+              <div key={item.title} className="about-section__item">
+                <div className="about-section__item-text">
+                  <p className="about-section__item-title">{item.title}</p>
                 </div>
-              ))}
-            </div>
+                <p className="about-section__item-year">{item.year}</p>
+              </div>
+            ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* ── Selected Projects ── */}
-        <section className="about-section" style={{ marginBottom: "80px" }}>
-          <div className="about-section__inner">
-            <div className="about-section__label">Selected Projects...</div>
-            <div className="about-section__list">
-              {selectedProjects.map((item) => (
-                <div key={item.title} className="about-section__item">
-                  <div className="about-section__item-text">
-                    <p className="about-section__item-title">{item.title}</p>
-                    {item.sub && (
-                      <p className="about-section__item-sub">{item.sub}</p>
-                    )}
-                  </div>
-                  <p className="about-section__item-year">{item.year}</p>
+      {/* ── Selected Projects ── */}
+      <section className="about-section" style={{ marginBottom: "80px" }}>
+        <div className="about-section__inner">
+          <div className="about-section__label">Selected Projects...</div>
+          <div className="about-section__list">
+            {selectedProjects.map((item) => (
+              <div key={item.title} className="about-section__item">
+                <div className="about-section__item-text">
+                  <p className="about-section__item-title">{item.title}</p>
+                  {item.sub && (
+                    <p className="about-section__item-sub">{item.sub}</p>
+                  )}
                 </div>
-              ))}
-            </div>
+                <p className="about-section__item-year">{item.year}</p>
+              </div>
+            ))}
           </div>
-        </section>
-      </main>
-    </div>
+        </div>
+      </section>
+    </main>
   );
 }
