@@ -9,7 +9,7 @@
  */
 
 import lotteSale from "./projects/lotte-sale";
-// import parisParalympics from "./projects/paris-paralympics";  ← 다음 프로젝트 추가 예시
+// import parisParalympics from "./projects/paris-paralympics";
 // import walkerhill from "./projects/walkerhill";
 
 const allProjects = [
@@ -26,8 +26,12 @@ export function getProjectById(id) {
   return projects.find((p) => p.id === id) || null;
 }
 
-// 관련 프로젝트 3개 가져오기 (현재 프로젝트 제외)
+// 최신 프로젝트 n개 가져오기 (현재 프로젝트 제외)
+export function getLatestProjects(currentId, count = 3) {
+  return projects.filter((p) => p.id !== currentId).slice(0, count);
+}
+
+// 관련 프로젝트 (하위 호환용)
 export function getRelatedProjects(currentId, count = 3) {
-  const others = projects.filter((p) => p.id !== currentId);
-  return others.slice(0, count);
+  return getLatestProjects(currentId, count);
 }

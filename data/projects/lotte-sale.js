@@ -1,60 +1,39 @@
-/**
- * 📁 프로젝트 데이터 파일
- * ─────────────────────────────────────────
- * 이 파일 하나가 메인 목록 카드 + 상세 페이지를 모두 담당해요.
- * 텍스트와 이미지 경로만 수정하면 사이트에 자동으로 반영됩니다!
- * ─────────────────────────────────────────
- */
-
 const project = {
-  // ── 기본 정보 ──────────────────────────────
-  id: "lotte-sale",                          // URL 주소: /project/lotte-sale (영문, 하이픈만)
-  order: 1,                                  // 메인 목록에서 보여지는 순서 (숫자가 작을수록 앞에)
-
-  // ── 메인 목록 카드 ────────────────────────
+  id: "lotte-sale",
+  order: 1,
   title: "Lotte Duty Free Online Sale Promotion",
-  category: "Brand Identity",
-  thumbnail: "/images/project/5_paris-paralympic-media-book/thumb.svg", // 썸네일 이미지 경로
-  imageFolder: "project/5_paris-paralympic-media-book",
+  category: "Digital Campaign Design",
 
-  // ── 상세 페이지 헤딩 ─────────────────────
+  // 홈 목록 썸네일 (1080px, 4:3 비율)
+  thumbnail: "/images/project/lotte-sale/thumbnail.webp",
+
+  // 상세 페이지 데이터
+  imageFolder: "lotte-sale",
+
+  // 상세 헤딩
   subtitle: "지금 가장 큰 혜택, 면세일에서 한 번에",
   description:
-    "롯데면세점 면세일은 다양한 브랜드와 카테고리의 할인 혜택을 한눈에 전달하는 온라인 메인 세일 행사로, 핵심 할인 정보와 참여 요소를 전면에 배치해 즉각적인 주목도를 높이고, 카테고리별 제품과 이벤트를 구조적으로 연결해 구매로 이어지는 흐름을 강화했습니다. 또한 반복되는 레이아웃 구조 안에서 강조 컬러와 그래픽 요소를 활용해 프로모션의 집중도를 높였습니다.",
+    "롯데면세점 면세일은 다양한 브랜드와 카테고리의 할인 혜택을 한눈에 전달하는 온라인 메인 세일 행사로, 핵심 할인 정보와 참여 요소를 전면에 배치해 즉각적인 주목도를 높이고, 카테고리별 제품과 이벤트를 구조적으로 연결해 구매로 이어지는 흐름을 강화했습니다.",
 
-  // ── 프로젝트 정보 (상세 페이지 우측) ──────
   info: [
-    { label: "Client",   value: "Lotte Duty Free" },
-    { label: "Role",     value: "Brand Design, Digital" },
-    { label: "Year",     value: "2024 – 2025" },
+    { label: "Client", value: "Lotte Duty Free" },
+    { label: "Type",   value: "Digital Campaign Design" },
+    { label: "Date",   value: "2025" },
   ],
 
-  // ── 본문 텍스트 (이미지 사이에 들어가는 설명) ──
-  bodyText:
-    "건축 매거진의 레이아웃과 타이포그래피 디자인을 담당했습니다. 미니멀하면서도 강렬한 시각적 인상을 만들기 위해 여백과 타입의 균형을 중심으로 전체 시스템을 설계했습니다.",
+  // 커버 이미지 (3320px, heading 바로 아래)
+  cover: "cover.webp",
 
-  // ── 이미지 목록 ───────────────────────────
-  // 규칙: /public/images/{id}/ 폴더 안에 이미지를 넣으세요
-  // 파일명은 자유롭게 지정 가능 (예: 01.jpg, hero.jpg, banner-top.png)
-  // cols: 한 줄에 몇 장을 나란히 보여줄지 (1, 2, 3 중 선택)
-  imageGroups: [
-    {
-      cols: 3,
-      images: ["01.svg", "02.svg", "03.svg"],
-    },
-    {
-      cols: 3,
-      images: ["04.svg", "05.svg", "06.svg"],
-    },
-    {
-      cols: 2,
-      images: ["07.svg", "08.svg"],
-    },
-    {
-      cols: 3,
-      images: ["09.svg", "10.svg", "11.svg"],
-    },
-    // ↑ 이미지 그룹을 추가하려면 여기에 복사해서 붙여넣으세요!
+  // Visual Concept 섹션
+  conceptTitle: "Visual Concept",
+  conceptText:
+    "The project visually structures the fundamental learning process. A typography-driven layout and color contrast clearly define information hierarchy and content density, while a consistent typographic system establishes a refined brand tone.",
+
+  // 본문 이미지 (순서대로, gap 20px 세로 나열)
+  images: [
+    "img-01.webp",
+    "img-02.webp",
+    "img-03.webp",
   ],
 };
 
