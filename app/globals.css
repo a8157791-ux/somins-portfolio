@@ -265,9 +265,7 @@ button { background: none; border: none; cursor: pointer; font: inherit; }
 
 /* 우: 이미지 */
 .about-intro__image {
-  position: relative;
   width: 100%;
-  aspect-ratio: 3 / 4;
   overflow: hidden;
   background: #f0f0f0;
   flex-shrink: 0;
@@ -276,8 +274,6 @@ button { background: none; border: none; cursor: pointer; font: inherit; }
 @media (min-width: 1070px) {
   .about-intro__image {
     flex: 1;
-    aspect-ratio: auto;
-    min-height: 600px;
   }
 }
 
@@ -293,7 +289,6 @@ button { background: none; border: none; cursor: pointer; font: inherit; }
   display: flex;
   flex-direction: column;
   border-top: 1px solid var(--color-border);
-  border-bottom: 1px solid var(--color-border);
   gap: 0;
 }
 

@@ -1,4 +1,4 @@
-import Image from "next/image";
+
 
 const experience = [
   { title: "UX/UI Designer, Musign", year: "2024 – 2025" },
@@ -53,14 +53,19 @@ export default function AboutPage() {
 
         {/* 우: 프로필 이미지 */}
         <div className="about-intro__image">
-          <Image
-            src="/images/about/about-somin.jpg"
-            alt="Somin Chung"
-            fill
-            sizes="(max-width: 1070px) 100vw, 50vw"
-            style={{ objectFit: "cover", objectPosition: "center top" }}
-            priority
-          />
+          <picture>
+            <source
+              media="(max-width: 1070px)"
+              srcSet="/images/about/about-somin.jpg"
+            />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/images/about/about-somin.jpg"
+              srcSet="/images/about/about-somin.jpg 1x, /images/about/about-somin@2x.jpg 2x"
+              alt="Somin Chung"
+              style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top", display: "block" }}
+            />
+          </picture>
         </div>
       </section>
 
