@@ -1,4 +1,3 @@
-/* ── Fonts (모든 @import는 반드시 최상단에) ── */
 @import url("https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap");
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css");
 
@@ -9,10 +8,8 @@
   --color-text-muted: rgba(34, 34, 34, 0.5);
   --color-accent: #da7a97;
   --color-border: rgba(34, 34, 34, 0.12);
-
   --font-sans: "Pretendard Variable", "Pretendard", -apple-system, sans-serif;
   --font-mono: "Space Mono", monospace;
-
   --header-h: 64px;
   --container-px: 20px;
   --max-w: 1660px;
@@ -25,18 +22,13 @@
   }
 }
 
-*,
-*::before,
-*::after {
+*, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-html {
-  scroll-behavior: smooth;
-  -webkit-text-size-adjust: 100%;
-}
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 
 body {
   font-family: var(--font-sans);
@@ -47,59 +39,20 @@ body {
   overflow-x: hidden;
 }
 
-img {
-  display: block;
-  max-width: 100%;
-}
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+button { background: none; border: none; cursor: pointer; font: inherit; }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-button {
-  background: none;
-  border: none;
-  cursor: pointer;
-  font: inherit;
-}
-
-/* ── Page transition ── */
-.page-enter {
-  opacity: 0;
-  transform: translateY(16px);
-}
-
-.page-enter-active {
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity 0.5s ease, transform 0.5s ease;
-}
-
-/* ── Reveal animation ── */
 @keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(24px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-.reveal {
-  opacity: 0;
-}
+.reveal { opacity: 0; }
+.reveal.visible { animation: fadeUp 0.7s ease forwards; }
 
-.reveal.visible {
-  animation: fadeUp 0.7s ease forwards;
-}
-
-/* ── Cursor ── */
 .cursor-dot {
-  width: 6px;
-  height: 6px;
+  width: 6px; height: 6px;
   background: var(--color-accent);
   border-radius: 50%;
   position: fixed;
@@ -110,21 +63,15 @@ button {
 }
 
 .cursor-ring {
-  width: 32px;
-  height: 32px;
+  width: 32px; height: 32px;
   border: 1.5px solid var(--color-accent);
   border-radius: 50%;
   position: fixed;
   pointer-events: none;
   z-index: 9998;
   transform: translate(-50%, -50%);
-  transition: transform 0.15s ease, width 0.2s ease, height 0.2s ease,
-    opacity 0.2s ease;
+  transition: transform 0.15s ease, width 0.2s ease, height 0.2s ease, opacity 0.2s ease;
   opacity: 0.6;
 }
 
-.cursor-ring.expanded {
-  width: 56px;
-  height: 56px;
-  opacity: 0.3;
-}
+.cursor-ring.expanded { width: 56px; height: 56px; opacity: 0.3; }
