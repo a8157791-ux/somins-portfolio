@@ -151,7 +151,7 @@ export default function AboutPage() {
             </div>
           </div>
 
-          {/* Right: photo — about-somin.jpg / about-somin@2x.jpg */}
+          {/* Right: photo — about-somin.jpg */}
           <div
             style={{
               position: "relative",

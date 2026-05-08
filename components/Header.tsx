@@ -61,7 +61,7 @@ export default function Header() {
             flexShrink: 0,
           }}
         >
-          {/* logo.png — public/images/ui/logo.png */}
+          {/* logo.svg — public/images/ui/logo.svg */}
           <Image
             src="/images/ui/logo.png"
             alt="design.somin"

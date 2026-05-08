@@ -1,8 +1,25 @@
 "use client";
 
+import type { SyntheticEvent } from "react";
 import Link from "next/link";
 
-export default function ProjectCard({ project }) {
+interface ProjectCardProps {
+  project: {
+    id: string;
+    title: string;
+    category: string;
+    thumbnail?: string;
+  };
+}
+
+export default function ProjectCard({ project }: ProjectCardProps) {
+  const handleImageError = (e: SyntheticEvent<HTMLImageElement>) => {
+    const target = e.target as HTMLImageElement;
+    target.style.display = "none";
+    const next = target.nextElementSibling as HTMLElement | null;
+    if (next) next.style.display = "flex";
+  };
+
   return (
     <Link href={`/project/${project.id}`} className="project-card">
       <div className="project-card__image">
@@ -10,10 +27,7 @@ export default function ProjectCard({ project }) {
           <img
             src={project.thumbnail}
             alt={project.title}
-            onError={(e) => {
-              e.target.style.display = "none";
-              e.target.nextSibling.style.display = "flex";
-            }}
+            onError={handleImageError}
           />
         ) : null}
         <div className="img-placeholder" style={{ display: project.thumbnail ? "none" : "flex" }}>

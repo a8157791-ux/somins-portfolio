@@ -39,7 +39,8 @@ export default function CustomCursor() {
     const onLeaveLink = () => ringRef.current?.classList.remove("expanded");
 
     document.addEventListener("mousemove", onMove);
-    document.querySelectorAll("a, button").forEach((el) => {
+    const linkElements = Array.from(document.querySelectorAll("a, button"));
+    linkElements.forEach((el) => {
       el.addEventListener("mouseenter", onEnterLink);
       el.addEventListener("mouseleave", onLeaveLink);
     });
@@ -48,6 +49,10 @@ export default function CustomCursor() {
 
     return () => {
       document.removeEventListener("mousemove", onMove);
+      linkElements.forEach((el) => {
+        el.removeEventListener("mouseenter", onEnterLink);
+        el.removeEventListener("mouseleave", onLeaveLink);
+      });
       cancelAnimationFrame(raf);
     };
   }, []);

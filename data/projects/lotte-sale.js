@@ -14,7 +14,8 @@ const project = {
   // ── 메인 목록 카드 ────────────────────────
   title: "Lotte Duty Free Online Sale Promotion",
   category: "Brand Identity",
-  thumbnail: "/images/lotte-sale/thumb.jpg", // 썸네일 이미지 경로
+  thumbnail: "/images/project/5_paris-paralympic-media-book/thumb.svg", // 썸네일 이미지 경로
+  imageFolder: "project/5_paris-paralympic-media-book",
 
   // ── 상세 페이지 헤딩 ─────────────────────
   subtitle: "지금 가장 큰 혜택, 면세일에서 한 번에",
@@ -39,19 +40,19 @@ const project = {
   imageGroups: [
     {
       cols: 3,
-      images: ["01.jpg", "02.jpg", "03.jpg"],
+      images: ["01.svg", "02.svg", "03.svg"],
     },
     {
       cols: 3,
-      images: ["04.jpg", "05.jpg", "06.jpg"],
+      images: ["04.svg", "05.svg", "06.svg"],
     },
     {
       cols: 2,
-      images: ["07.jpg", "08.jpg"],
+      images: ["07.svg", "08.svg"],
     },
     {
       cols: 3,
-      images: ["09.jpg", "10.jpg", "11.jpg"],
+      images: ["09.svg", "10.svg", "11.svg"],
     },
     // ↑ 이미지 그룹을 추가하려면 여기에 복사해서 붙여넣으세요!
   ],
