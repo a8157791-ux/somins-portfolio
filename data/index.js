@@ -9,13 +9,11 @@
  */
 
 import lotteSale from "./projects/lotte-sale";
-// import parisParalympics from "./projects/paris-paralympics";
-// import walkerhill from "./projects/walkerhill";
+import lotteSeason from "./projects/9-4-lotte-season";  // ← 추가
 
 const allProjects = [
   lotteSale,
-  // parisParalympics,
-  // walkerhill,
+  lotteSeason,  // ← 추가
 ];
 
 // order 값 기준으로 정렬
