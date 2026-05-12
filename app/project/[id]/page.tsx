@@ -6,6 +6,31 @@ type ProjectPageProps = {
   params: Promise<{ id: string }>;
 };
 
+type ImageItem =
+  | { type: "single"; files: [string] }
+  | { type: "pair"; files: [string, string] };
+
+function groupImages(images: string[]): ImageItem[] {
+  const result: ImageItem[] = [];
+  const used = new Set<string>();
+  for (const file of images) {
+    if (used.has(file)) continue;
+    const match = file.match(/^(.+?)a(\.\w+)$/);
+    if (match) {
+      const pairB = `${match[1]}b${match[2]}`;
+      if (images.includes(pairB)) {
+        result.push({ type: "pair", files: [file, pairB] });
+        used.add(file);
+        used.add(pairB);
+        continue;
+      }
+    }
+    result.push({ type: "single", files: [file] });
+    used.add(file);
+  }
+  return result;
+}
+
 export async function generateMetadata({ params }: ProjectPageProps) {
   const { id } = await params;
   const project = getProjectById(id);
@@ -71,17 +96,20 @@ export default async function DetailPage({ params }: ProjectPageProps) {
 
         {/* 본문 이미지 그룹 */}
         {project.images && project.images.length > 0 && (
-          <div className="detail-image-group">
-            {project.images.map((filename: string, idx: number) => (
-              <div key={idx}>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={`/images/${imageBase}/${filename}`}
-                  alt=""
-                  style={{ width: "100%", display: "block" }}
-                />
-              </div>
-            ))}
+          <div className={`detail-image-group${(project as any).imageGap !== false ? " has-gap" : ""}`}>
+            {groupImages(project.images).map((item: ImageItem, idx: number) =>
+              item.type === "pair" ? (
+                <div key={idx} className="detail-image-row">
+                  {item.files.map((f: string) => (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img key={f} src={`/images/${imageBase}/${f}`} alt="" style={{ width: "100%", display: "block" }} />
+                  ))}
+                </div>
+              ) : (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img key={idx} src={`/images/${imageBase}/${item.files[0]}`} alt="" style={{ width: "100%", display: "block" }} />
+              )
+            )}
           </div>
         )}
       </div>
