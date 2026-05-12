@@ -9,11 +9,11 @@
  */
 
 import lotteSale from "./projects/lotte-sale";
-import lotteSeason from "./projects/9-4-lotte-season";  // ← 추가
+import lotteSeason from "./projects/9-4-lotte-season";  
 
 const allProjects = [
   lotteSale,
-  lotteSeason,  // ← 추가
+  lotteSeason,  
 ];
 
 // order 값 기준으로 정렬
