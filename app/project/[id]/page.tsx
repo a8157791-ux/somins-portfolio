@@ -51,7 +51,7 @@ export default async function DetailPage({ params }: ProjectPageProps) {
       {/* ── Heading ── */}
       <section className="detail-heading">
         <div className="detail-heading__title-wrap">
-          <h1 className="detail-heading__title">{project.title}</h1>
+          <h1 className="detail-heading__title" dangerouslySetInnerHTML={{ __html: project.title }}/>
         </div>
         <div className="detail-heading__right">
           <div className="detail-heading__desc-wrap">
