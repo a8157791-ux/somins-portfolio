@@ -520,7 +520,13 @@ button { background: none; border: none; cursor: pointer; font: inherit; }
 
 @media (min-width: 1070px) {
   .detail-heading__title-wrap {
-    width: 819px;
+    flex:1;
+  }
+}
+
+@media (min-width: 1600px) {
+  .detail-heading__title-wrap {
+    flex:2;
   }
 }
 

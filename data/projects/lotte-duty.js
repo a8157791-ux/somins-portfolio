@@ -2,7 +2,7 @@
 const project = {
   id: "lotte-duty",
   order: 1,
-  title: "Lotte Duty Free Online\nSale Promotion",
+  title: "Lotte Duty Free Online <br>Sale Promotion",
   category: "Digital Campaign Design",
 
   thumbnail: "/images/project/lotte-duty/thumbnail.webp",
