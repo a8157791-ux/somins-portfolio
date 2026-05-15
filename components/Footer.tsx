@@ -22,7 +22,7 @@ export default function Footer() {
         justifyContent: "center",
         padding: "40px var(--container-px)",
         position: "relative",
-        borderTop: "1px solid var(--color-border)",
+        // borderTop: "1px solid var(--color-border)",
       }}
     >
       <p

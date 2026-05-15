@@ -130,7 +130,7 @@ export default async function DetailPage({ params }: ProjectPageProps) {
                   )}
                 </div>
                 <div className="related-card__info">
-                  <p className="related-card__title">{p.title}</p>
+                  <p className="related-card__title">{p.title.replace(/<br>/g, "")}</p>
                   <p className="related-card__category">{p.category}</p>
                 </div>
               </Link>
