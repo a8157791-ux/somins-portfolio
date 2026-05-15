@@ -187,7 +187,7 @@ button { background: none; border: none; cursor: pointer; font: inherit; }
   font-family: var(--font-sans);
   font-weight: 500;
   font-size: clamp(22px, 4vw, 50px);
-  line-height: 1.4;
+  line-height: 1.3;
   color: var(--color-text);
   white-space: pre-wrap;
 }
@@ -313,7 +313,7 @@ button { background: none; border: none; cursor: pointer; font: inherit; }
 
 @media (min-width: 1070px) {
   .about-section__label {
-    width: 676px;
+    flex: 1;
     border-right: none;
   }
 }
@@ -322,6 +322,12 @@ button { background: none; border: none; cursor: pointer; font: inherit; }
   display: flex;
   flex-direction: column;
   flex: 1;
+}
+
+@media (min-width:1400px) {
+  .about-section__list {
+    flex: 2;
+  }
 }
 
 .about-section__item {

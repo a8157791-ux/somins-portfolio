@@ -26,7 +26,7 @@ export default function AboutPage() {
       {/* ── Super Heading ── */}
       <section className="about-heading">
         <p className="about-heading__text">
-          {"A visual designer with 8+ years of experience working across branding, editorial and digital design,\nI build clear and consistent visual systems."}
+          {"A visual designer with 8+ years of experience working across \nbranding, editorial and digital design, \nI build clear and consistent visual systems."}
         </p>
       </section>
 
