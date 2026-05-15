@@ -35,7 +35,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         </div>
       </div>
       <div className="project-card__info">
-        <p className="project-card__title">{project.title}</p>
+        <p className="project-card__title">{project.title.replace(/<br>/g, "")}</p>
         <p className="project-card__category">{project.category}</p>
       </div>
     </Link>
