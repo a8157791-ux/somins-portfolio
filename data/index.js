@@ -8,15 +8,21 @@
  * ─────────────────────────────────────────
  */
 
-import lotteSale from "./projects/lotte-sale";
-import lotteSeason from "./projects/9-4-lotte-season";  
-import lotteFashion from "./projects/9-5-lotte-fashion";  // ← 추가
-
+import lotteDiscovery from "./projects/lotte-discovery";
+import lotteDuty from "./projects/lotte-duty";
+import lotteFashion from "./projects/lotte-fashion";
+import lotteSeason from "./projects/lotte-season";
+import lotteStar from "./projects/lotte-star";
+ 
 const allProjects = [
-  lotteSale,
+  lotteDuty,
+  lotteDiscovery,
+  lotteFashion,
   lotteSeason,
-  lotteFashion,  // ← 추가
+  lotteStar,
 ];
+ 
+export default allProjects;
 
 // order 값 기준으로 정렬
 export const projects = allProjects.sort((a, b) => a.order - b.order);
