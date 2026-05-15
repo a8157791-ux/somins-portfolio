@@ -3,14 +3,32 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 export default function Header() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
+  const [visible, setVisible] = useState(true);
+  const lastScrollY = useRef(0);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 10);
+    const onScroll = () => {
+      const currentY = window.scrollY;
+      const prev = lastScrollY.current;
+
+      // 스크롤 방향 감지
+      if (currentY > prev && currentY > 60) {
+        // 아래로 스크롤 → 헤더 숨김
+        setVisible(false);
+      } else {
+        // 위로 스크롤 → 헤더 표시
+        setVisible(true);
+      }
+
+      setScrolled(currentY > 10);
+      lastScrollY.current = currentY;
+    };
+
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -36,7 +54,9 @@ export default function Header() {
         borderBottom: scrolled
           ? "1px solid var(--color-border)"
           : "1px solid transparent",
-        transition: "border-color 0.3s ease, background 0.3s ease",
+        transform: visible ? "translateY(0)" : "translateY(-100%)",
+        transition:
+          "transform 0.35s ease, border-color 0.3s ease, background 0.3s ease",
         display: "flex",
         alignItems: "center",
         padding: "0 var(--container-px)",
@@ -61,7 +81,6 @@ export default function Header() {
             flexShrink: 0,
           }}
         >
-          {/* logo.svg — public/images/ui/logo.svg */}
           <Image
             src="/images/ui/logo.png"
             alt="design.somin"
@@ -100,7 +119,6 @@ export default function Header() {
                 }}
               >
                 {label}
-                {/* Underline indicator */}
                 <span
                   style={{
                     position: "absolute",
